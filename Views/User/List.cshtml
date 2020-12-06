@@ -1,0 +1,42 @@
+﻿@model List<User>
+
+@{
+    ViewBag.Title = "Список пользователей";
+    Layout = "_Layout";
+}
+
+<h2>Список пользователей</h2>
+<table border="1" style="width: 100%">
+    <tr>
+        <th>Логин</th>
+        <th>Состояние блокировки</th>
+        <th>Блокировать</th>
+    </tr>
+    @foreach (var  user in @Model)
+    {
+        <tr>
+            <th> @user.UserName</th>
+            <th> @user.IsBlock</th>
+            <th>
+                @if (!@user.IsBlock)
+                {
+                    <a class="btn btn-danger " asp-route-id="@user.Id"
+                       asp-controller="User" asp-action="Block" role="button">
+                        Блокировать
+                    </a>
+                }
+                else
+                {
+                    <a class="btn btn-success " asp-route-id="@user.Id"
+                       asp-controller="User" asp-action="Block" role="button">
+                        Разблокировать
+                    </a>
+                }
+            </th>
+        </tr>
+    }
+    <a class="btn btn-info "
+       asp-controller="Account" asp-action="Register" role="button">
+        Создать пользователя
+    </a>
+</table>

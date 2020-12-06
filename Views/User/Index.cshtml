@@ -1,0 +1,20 @@
+﻿@inject UserManager<User> UserManager
+@using Microsoft.AspNetCore.Identity
+@model User
+
+@{
+    ViewBag.Title = "Личный кабинет";
+    Layout = "_Layout";
+}
+<div class="row">
+   
+    <div class="col-6">
+        <h2> Пользователь :@Model.UserName </h2>
+
+        @if (@Model.IsBlock)
+        {
+            <h3 style="color: red; ">Пользователь заблокирован админом</h3>
+        }
+      
+    </div>
+</div>
