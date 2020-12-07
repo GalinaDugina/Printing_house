@@ -15,5 +15,7 @@ namespace PH.Models.Data
          public PrintingHouseContext(DbContextOptions options) : base(options)
          {
          }
+
+        
     }
 }

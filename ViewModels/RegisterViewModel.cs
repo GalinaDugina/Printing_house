@@ -12,10 +12,10 @@ namespace PH.ViewModels
             public string Role { get; set; }
 
             [Required(ErrorMessage = "Это обязательное поле :")]
-            [DataType(DataType.Text)]
-            [Display(Name = "Логин")]
-            [Remote(action: "CheckLogin", controller: "Validation", ErrorMessage = "Ранее использован : ")]
-            public string UserName { get; set; }
+            [DataType(DataType.EmailAddress)]
+            [Display(Name = "Email")]
+            [Remote(action: "CheckEmail", controller: "Validation", ErrorMessage = "Ранее использован :")]
+            public string Email { get; set; }
 
             [DataType(DataType.Password)]
             [Display(Name = "Пароль")]

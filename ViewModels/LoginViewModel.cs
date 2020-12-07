@@ -5,7 +5,7 @@ namespace PH.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email/Логин")]
+        [Display(Name = "Логин")]
         public string Login { get; set; }
            
         [Required]

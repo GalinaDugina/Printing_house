@@ -18,9 +18,9 @@ namespace PH.Controllers
             _userManager = userManager;
         }
 
-        public bool CheckLogin(string userName)
+        public bool CheckEmail(string email)
         {
-            return !_db.Users.Any(u => u.UserName == userName);
+            return !_db.Users.Any(u => u.Email == email);
         }
     }
 }

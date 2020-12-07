@@ -40,8 +40,8 @@ namespace PH.Controllers
             {
                User user = new User
                 {
-                   
-                    UserName = model.UserName,
+                   UserName = model.Email,
+                    Email = model.Email,
                     
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -75,13 +75,8 @@ namespace PH.Controllers
             if (ModelState.IsValid)
             {
                 User user = new User();
-                user = await _userManager.FindByEmailAsync(model.Login);
-                if (user == null)
-                {
-                   user = await _userManager.FindByNameAsync(model.Login);
-                }
-                
-                if (user != null)
+                user = await _userManager.FindByNameAsync(model.Login);
+               if (user != null)
                 {
                     Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(
                         user,
